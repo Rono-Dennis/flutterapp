@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int detailsIndex = 0;
-  int? selectedIndex;
+  int selectedIndex=0;
   @override
   Widget build(BuildContext context) {
 
@@ -163,10 +163,10 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {
                             setState(() {
                               selectedIndex = index;
-                              if(selectedIndex==null){
-                                CardsWidget(text1: options[index].text1, color: const Color(0xff38AB66) );
-                              }
                             });
+                            if(selectedIndex==null){
+                              CardsWidget(text1: options[index].text1, color: const Color(0xff38AB66) );
+                            }
                           },
                           child:
                           CardsWidget(text1: options[index].text1, color: selectedIndex == index? const Color(0xff38AB66): const Color(0xffE5EDF5),)),

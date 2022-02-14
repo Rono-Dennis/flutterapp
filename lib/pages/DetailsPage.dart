@@ -24,7 +24,7 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
 
-  int? selectedIndex;
+  int selectedIndex=0;
   @override
   Widget build(BuildContext context) {
     List<Option> options =[
