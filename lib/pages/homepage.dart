@@ -2,6 +2,9 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutterapp/models/Colorwidget.dart';
+import 'package:flutterapp/models/Details.dart';
+import 'package:flutterapp/models/Options1.dart';
 import 'package:flutterapp/pages/DetailsPage.dart';
 import 'package:flutterapp/pages/imagewidget.dart';
 import 'package:flutterapp/widgets/cardswidget.dart'; 
@@ -28,11 +31,11 @@ class _HomePageState extends State<HomePage> {
       Details(image: "compares.jpg", text: "Nothing Compares Resolution"),
     ];
     
-    List<Options> options =[
-      Options(text1: "All"),
-      Options(text1: "Music"),
-      Options(text1: "Trading"),
-      Options(text1: "Technology"),
+    List<Options1> options =[
+      Options1(text1: "All"),
+      Options1(text1: "Music"),
+      Options1(text1: "Trading"),
+      Options1(text1: "Technology"),
     ];
 
     List<Colorwidget> colors =
@@ -265,25 +268,4 @@ class _HomePageState extends State<HomePage> {
     )
     );
   }
-}
-
-class Colorwidget {
-  final Color color1;
-  Colorwidget({required this.color1});
-}
-
-class Options {
-  final String text1;
-  Options({
-    required this.text1,
-});}
-
-class Details {
-  final String image;
-  final String text;
-
-  Details({
-    required this.image,
-    required this.text,
-  });
 }

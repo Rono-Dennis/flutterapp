@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp/models/Details1.dart';
 import 'package:flutterapp/pages/imagewidget.dart';
 import 'package:flutterapp/widgets/Details.dart';
 import 'package:flutterapp/widgets/cardswidget.dart';
@@ -18,12 +19,12 @@ class _BarItemPageState extends State<BarItemPage> {
   @override
     Widget build(BuildContext context) {
 
-    List<Details> details =[
-      Details(image: "panggungimage.jpg", text: "Panggung Semenjak internet"),
-      Details(image: "konsa.jpg", text: "Jews review internet"),
-      Details(image: "spiritc.jpg", text: "Spiritczulic Enhancement Center"),
-      Details(image: "additional.jpg", text: "Auditionning musical theatre"),
-      Details(image: "compares.jpg", text: "Nothing Compares Resolution"),
+    List<Details1> details =[
+      Details1(image: "panggungimage.jpg", text: "Panggung Semenjak internet"),
+      Details1(image: "konsa.jpg", text: "Jews review internet"),
+      Details1(image: "spiritc.jpg", text: "Spiritczulic Enhancement Center"),
+      Details1(image: "additional.jpg", text: "Auditionning musical theatre"),
+      Details1(image: "compares.jpg", text: "Nothing Compares Resolution"),
     ];
       var width = MediaQuery.of(context).size.width;
       var height = MediaQuery.of(context).size.height;
@@ -115,12 +116,3 @@ class _BarItemPageState extends State<BarItemPage> {
 
     }
   }
-class Details {
-  final String image;
-  final String text;
-
-  Details({
-    required this.image,
-    required this.text,
-  });
-}
