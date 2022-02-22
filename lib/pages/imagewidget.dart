@@ -53,14 +53,14 @@ class _ImageWidgetState extends State<ImageWidget> {
                     ),
                     const SizedBox(height: 8,),
                     Text(widget.text,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: Colors.white,
                       ),),
                     const SizedBox(height: 8,),
                     Row(
-                      children: [
+                      children: const [
                         Text("Januari 19,2022",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,

@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/models/Details1.dart';
+import 'package:flutterapp/helper/Details1Details.dart';
 import 'package:flutterapp/pages/imagewidget.dart';
-import 'package:flutterapp/widgets/Details.dart';
-import 'package:flutterapp/widgets/cardswidget.dart';
 import 'package:flutterapp/widgets/textwidget.dart';
 
 import 'DetailsPage.dart';
@@ -19,17 +17,11 @@ class _BarItemPageState extends State<BarItemPage> {
   @override
     Widget build(BuildContext context) {
 
-    List<Details1> details =[
-      Details1(image: "panggungimage.jpg", text: "Panggung Semenjak internet"),
-      Details1(image: "konsa.jpg", text: "Jews review internet"),
-      Details1(image: "spiritc.jpg", text: "Spiritczulic Enhancement Center"),
-      Details1(image: "additional.jpg", text: "Auditionning musical theatre"),
-      Details1(image: "compares.jpg", text: "Nothing Compares Resolution"),
-    ];
+
       var width = MediaQuery.of(context).size.width;
       var height = MediaQuery.of(context).size.height;
       return SafeArea(child: Scaffold(
-        backgroundColor: Color(0xffF8F6F5),
+        backgroundColor: const Color(0xffF8F6F5),
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50.0),
           child: AppBar(
@@ -45,7 +37,7 @@ class _BarItemPageState extends State<BarItemPage> {
           children: <Widget>[
             Column(
               children: <Widget>[
-                SizedBox(height: 9,),
+                const SizedBox(height: 9,),
                 Container(
                   padding: const EdgeInsets.only(top: 25,),
                   child: Row(
@@ -58,17 +50,17 @@ class _BarItemPageState extends State<BarItemPage> {
                               bottom: 15, top: 11),
                           width: 170,
                           height: 75,
-                          child: TextWidget(
+                          child: const TextWidget(
                             text: "Lets Explore event and party",
                             color: Colors.black54,
                             size: 20,
                           )),
-                      Positioned(
+                      const Positioned(
                         right: 0,
                         top: 0,
                         child: CircleAvatar(
                             radius: 30,backgroundColor: Colors.white,
-                            child: const Icon(Icons.doorbell_rounded, size: 30, color: Colors.black54,)),
+                            child: Icon(Icons.doorbell_rounded, size: 30, color: Colors.black54,)),
                       ),
 
                     ],
@@ -79,12 +71,12 @@ class _BarItemPageState extends State<BarItemPage> {
                     child:
                     ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: details.length,
+                      itemCount: Details1Details.details.length,
                       padding: const EdgeInsets.all(12),
                       itemBuilder: (BuildContext context, int index) {
 
                         return RawMaterialButton(
-                          child: ImageWidget(image: details[index].image, text: details[index].text,
+                          child: ImageWidget(image: Details1Details.details[index].image, text: Details1Details.details[index].text,
 
                           ),
                           onPressed: () {
@@ -92,8 +84,8 @@ class _BarItemPageState extends State<BarItemPage> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => DetailsPage(
-                                  image: details[index].image,
-                                  text: details[index].text,
+                                  image: Details1Details.details[index].image,
+                                  text: Details1Details.details[index].text,
                                   index: index,
                                 ),
                               ),

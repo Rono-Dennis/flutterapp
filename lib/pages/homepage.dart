@@ -2,9 +2,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutterapp/models/Colorwidget.dart';
-import 'package:flutterapp/models/Details.dart';
-import 'package:flutterapp/models/Options1.dart';
+import 'package:flutterapp/helper/Details.dart';
+import 'package:flutterapp/helper/Options1.dart';
 import 'package:flutterapp/pages/DetailsPage.dart';
 import 'package:flutterapp/pages/imagewidget.dart';
 import 'package:flutterapp/widgets/cardswidget.dart'; 
@@ -18,31 +17,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // List<Details>? details;
   int detailsIndex = 0;
   int selectedIndex=0;
   @override
   Widget build(BuildContext context) {
-
-    List<Details> details =[
-      Details(image: "panggungimage.jpg", text: "Panggung Semenjak internet"),
-      Details(image: "konsa.jpg", text: "Jews review internet"),
-      Details(image: "spiritc.jpg", text: "Spiritczulic Enhancement Center"),
-      Details(image: "additional.jpg", text: "Auditionning musical theatre"),
-      Details(image: "compares.jpg", text: "Nothing Compares Resolution"),
-    ];
-    
-    List<Options1> options =[
-      Options1(text1: "All"),
-      Options1(text1: "Music"),
-      Options1(text1: "Trading"),
-      Options1(text1: "Technology"),
-    ];
-
-    List<Colorwidget> colors =
-    [
-      Colorwidget(
-          color1: const Color(0xff38AB66)),
-    ];
 
     final items = <Widget>[
       const Icon(Icons.home_filled, size: 30),
@@ -51,9 +30,6 @@ class _HomePageState extends State<HomePage> {
       const Icon(Icons.email, size: 30,),
       const Icon(Icons.account_circle_outlined, size: 30,),
     ];
-
-    var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
     return SafeArea(child: Scaffold(
       backgroundColor: const Color(0xffF8F6F5),
       appBar: PreferredSize(
@@ -126,14 +102,14 @@ class _HomePageState extends State<HomePage> {
                     ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      itemCount: details.length,
+                      itemCount: Fetch.details.length,
                       padding: const EdgeInsets.all(12),
                       itemBuilder: (BuildContext context, int index) {
 
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: RawMaterialButton(
-                            child: ImageWidget(image: details[index].image, text: details[index].text,
+                            child: ImageWidget(image: Fetch.details[index].image, text: Fetch.details[index].text,
 
                             ),
                             onPressed: () {
@@ -141,8 +117,8 @@ class _HomePageState extends State<HomePage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => DetailsPage(
-                                    image: details[index].image,
-                                    text: details[index].text,
+                                    image: Fetch.details[index].image,
+                                    text: Fetch.details[index].text,
                                     index: index,
                                   ),
                                 ),
@@ -158,7 +134,7 @@ class _HomePageState extends State<HomePage> {
               Flexible(child: ListView.builder(
                   shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                  itemCount: options.length,
+                  itemCount: AddOptions.options.length,
                   itemBuilder: (BuildContext context, int index){
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -168,11 +144,11 @@ class _HomePageState extends State<HomePage> {
                               selectedIndex = index;
                             });
                             if(selectedIndex==null){
-                              CardsWidget(text1: options[index].text1, color: const Color(0xff38AB66) );
+                              CardsWidget(text1: AddOptions.options[index].text1, color: const Color(0xff38AB66) );
                             }
                           },
                           child:
-                          CardsWidget(text1: options[index].text1, color: selectedIndex == index? const Color(0xff38AB66): const Color(0xffE5EDF5),)),
+                          CardsWidget(text1: AddOptions.options[index].text1, color: selectedIndex == index? const Color(0xff38AB66): const Color(0xffE5EDF5),)),
                     );
                   }
               )),
@@ -225,8 +201,8 @@ class _HomePageState extends State<HomePage> {
                             // const SizedBox(height: 8,),
                             Row(
                               // mainAxisAlignment: MainAxisAlignment.start,
-                              children:  [
-                                const Text("Januari, 23, 2022",
+                              children:  const [
+                                Text("Januari, 23, 2022",
                                   style: TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
@@ -239,8 +215,8 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  const Text("FREE",textAlign: TextAlign.start,
+                                children: const [
+                                  Text("FREE",textAlign: TextAlign.start,
                                     style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,

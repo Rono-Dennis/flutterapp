@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutterapp/models/Dates.dart';
-import 'package:flutterapp/models/Option.dart';
-import 'package:flutterapp/pages/cards.dart';
+import 'package:flutterapp/helper/DatesDetails.dart';
+import 'package:flutterapp/helper/OptionDetails.dart';
 import 'package:flutterapp/pages/homepage.dart';
 import 'package:flutterapp/widgets/buttonwidget.dart';
-import 'package:flutterapp/widgets/cardswidget.dart';
 import 'package:flutterapp/widgets/textwidget.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -27,40 +25,7 @@ class _DetailsPageState extends State<DetailsPage> {
   int selectedIndex=0;
   @override
   Widget build(BuildContext context) {
-    List<Option> options =[
-      Option(
-          text1: "Early bid",
-          text2: "\$12",
-          text3: "1"
-      ),
-      Option(
-          text1: "VVIp bid",
-          text2: "\$20",
-          text3: "0"
 
-      ),
-      Option(
-          text1: "Pro+",
-          text2: '\$30',
-          text3: '0',
-      ),
-      Option(text1: "Normal",
-          text2: '\$50',
-          text3: '1'
-      ),
-    ];
-    List<Dates> dates =[
-      Dates(date: "10Dec"),
-      Dates(date: "12Dec"),
-      Dates(date: "13Dec"),
-      Dates(date: "14Dec"),
-      Dates(date: "15Dec"),
-      Dates(date: "16Dec"),
-      Dates(date: "17Dec"),
-      Dates(date: "18Dec"),
-      Dates(date: "19Dec"),
-      Dates(date: "20Dec"),
-    ];
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffF8F6F5),
@@ -117,7 +82,6 @@ class _DetailsPageState extends State<DetailsPage> {
                       ),
                       const Text("Wildan Wari", style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w700),)
 
-                      // ),
                     ],
                   ),
                   Container(
@@ -162,7 +126,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    itemCount: options.length,
+                    itemCount: OptionDetails.options.length,
                     itemBuilder: (BuildContext context, int index){
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -181,7 +145,7 @@ class _DetailsPageState extends State<DetailsPage> {
                               children: [
                                 Row(
                                   children: [
-                                    Text(options[index].text1,
+                                    Text(OptionDetails.options[index].text1,
                                       style: const TextStyle(fontSize: 14,
                                           fontWeight: FontWeight.w700,
                                           color: const Color(0xff919191)),),
@@ -189,7 +153,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                 ),
                                 Row(
                                   children: [
-                                    Text(options[index].text2,
+                                    Text(OptionDetails.options[index].text2,
                                       style: const TextStyle(fontSize: 16,
                                           fontWeight: FontWeight.w700,
                                           color: Color(0xff454545)),),
@@ -209,7 +173,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                         const CircleAvatar(radius: 15,
                                             backgroundColor: Colors.white,
                                             child:Icon(Icons.remove) ),
-                                        Text(options[index].text3,style: const TextStyle(
+                                        Text(OptionDetails.options[index].text3,style: const TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.w600,
                                             color: Colors.black
@@ -247,7 +211,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    itemCount: options.length,
+                    itemCount: OptionDetails.options.length,
                     itemBuilder: (BuildContext context, int index){
                       return Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -272,7 +236,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
-                                        Text(dates[index].date,
+                                        Text(DateDetails.dates[index].date,
                                           style: TextStyle(fontSize: 18,
                                               fontWeight: FontWeight.w700,
                                               color: selectedIndex ==index? const Color(0xff0253A8):const Color(0xff919191)),),
